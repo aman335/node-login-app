@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
-const PORT = 3000;
+
+const PORT = process.env.PORT || 3000;
 
 // JSON body parse karne ke liye middleware
 app.use(express.json());
@@ -22,6 +23,7 @@ app.post('/login', (req, res) => {
   }
 });
 
+// 👇 Render ke liye correct port listen karo
 app.listen(PORT, () => {
-  console.log(`Server chal raha hai http://localhost:${PORT}`);
+  console.log(`Server chal raha hai on port ${PORT}`);
 });
