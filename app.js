@@ -3,10 +3,14 @@ const app = express();
 
 const PORT = process.env.PORT || 3000;
 
-// JSON body parse karne ke liye middleware
 app.use(express.json());
 
-// Hardcoded user data (as example)
+//  Root route for Render health check
+app.get('/', (req, res) => {
+  res.send('App is live!');
+});
+
+// Hardcoded user data (example)
 const user = {
   username: 'admin',
   password: 'password123'
@@ -23,7 +27,6 @@ app.post('/login', (req, res) => {
   }
 });
 
-// 👇 Render ke liye correct port listen karo
 app.listen(PORT, () => {
   console.log(`Server chal raha hai on port ${PORT}`);
 });
